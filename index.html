@@ -19,11 +19,7 @@
 
 #graph {
     border: 1px solid blue;
-/*    width: 960px;
-    height: 600px;*/
-/*    position: absolute;
-    left: 0px;
-*/}
+}
 
 </style>
 <!-- <svg id="graph"></svg> -->
@@ -101,8 +97,8 @@ d3.json("data.json", function(error, graph) {
         .attr("y2", function(d) { return d.target.y; });
 
     node
-        .attr("cx", function(d) { return d.x; })
-        .attr("cy", function(d) { return d.y; });
+        .attr("cx", function(d) { return Math.max(0, Math.min(width, d.x)); })
+        .attr("cy", function(d) { return Math.max(0, Math.min(height, d.y)); });
   }
 });
 
