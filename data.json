@@ -344,7 +344,18 @@
     } 
   ],
   "links": [
-    {"source": "1", "target": "2", "idea": "shoes not crutches"},
-    {"source": "1", "target": "3", "idea": "email is awesome"} 
+    {"source": "43", "target": "2", "idea": "extending direct manipulation from ideas to physical reality, e.g optics metaphor"},
+    {"source": "43", "target": "27", "idea": "we know more than we know; muscle memory"},
+    {"source": "43", "target": "17", "idea": "different visions of invisible tech; ubicomp"},
+    {"source": "43", "target": "30", "idea": "when does something get foregrounded; who decides"}, 
+    {"source": "30", "target": "2", "idea": "combining direct manipulation with automated behaviors"},
+    {"source": "30", "target": "3", "idea": "locus of attention in action"}, 
+    {"source": "43", "target": "3", "idea": "locus of attention in action"}, 
+    {"source": "23", "target": "17", "idea": "a physical manifestation of groupware; colocated collaboration w/ multiple people"},
+    {"source": "23", "target": "22", "idea": "we <3 email"},
+    {"source": "11", "target": "23", "idea": "interfaces are hard; here's how to think about them"},
+    {"source": "11", "target": "30", "idea": "exiting gracefully"},
+    {"source": "2", "target": "22", "idea": "exploring inherent limitations of replicating real world/ existing mechanisms of thought"},
+    {"source": "30", "target": "22", "idea": "benefits of automation/tech over the manual/unaided; e.g. google hangouts autofocus"}
   ]
 }
