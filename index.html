@@ -80,8 +80,21 @@ d3.json("data.json", function(error, graph) {
       .text(function(d) { return d.title; });
 
   function mouseClick(node) {
+
     selected[1] = selected[0];
     selected[0] = node; 
+
+    d3.selectAll("circle").style("fill", function(d) {
+      var s1 = null;
+      var s0 = selected[0].id;
+      if (selected[1]) {
+        s1 = selected[1].id;
+      }
+      if (d.id == s0 || d.id == s1) {
+        return "red";
+      }
+      return color(d.group);
+    }); 
 
     if (selected[0]) {
       document.getElementById("paper_title_a").innerHTML = selected[0].title;
@@ -90,6 +103,7 @@ d3.json("data.json", function(error, graph) {
       document.getElementById("paper_title_b").innerHTML = selected[1].title;
     }
 
+    // update the ideas list
     var ideasstring = "<ul>";
     for (var i=0; i < graph.links.length; i++) {
         var l = graph.links[i];
@@ -107,14 +121,26 @@ d3.json("data.json", function(error, graph) {
     }
     ideasstring += "</ul>"
     document.getElementById("ideas_list").innerHTML = ideasstring;
+
   }
 
+  // color node on hover
   function mouseOver(node) {
-    
+    d3.select(this).style("fill", "red");
   }
 
-  node.on("click", mouseClick);
-  node.on("mouseover", mouseOver);
+  // uncolor node unless it has been selected
+  function mouseOut(node) {
+    if (node != selected[0] && node != selected[1]) {
+      d3.select(this).style("fill", function(d) {
+        return color(d.group);
+      }); 
+    }
+  }
+
+  node.on("click", mouseClick)
+      .on("mouseover", mouseOver)
+      .on("mouseout", mouseOut);
 
   simulation
       .nodes(graph.nodes)
